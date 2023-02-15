@@ -134,6 +134,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{b0993758-15a1-4932-b45b-0103c73e0902}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaLogicaNegocios\CapaLogicaNegocios.csproj">
       <Project>{e7cd8503-10fb-495c-a9ec-999a6485ba0a}</Project>
       <Name>CapaLogicaNegocios</Name>

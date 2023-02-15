@@ -1,4 +1,5 @@
 ﻿using CapaAccesoDatos;
+using CapaEntidad;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,6 +17,11 @@ namespace CapaLogicaNegocios
         //metodo para la seleccion de datos
         public DataTable ListaCategorias() {
             return Datos.SelectCategoriaDatos();
+        }
+
+        //metodo para agrear una categoria
+        public bool AgregarCategoria(Categoria categoria) {
+            return Datos.InsertCategoria(categoria);
         }
     }
 }
