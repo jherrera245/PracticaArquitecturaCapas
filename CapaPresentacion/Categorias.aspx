@@ -5,8 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--Librerias de Css-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Categorías --Admin--</title>
 </head>
 <body>
@@ -41,8 +43,24 @@
                             <asp:GridView
                                 ID="GridViewCategorias"
                                 CssClass="table border-0 table-striped table-hover"
-                                runat="server">
+                                runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="IdCategoria" DataSourceID="SqlDataSourceCategorias">
+                                <Columns>
+                                    <asp:BoundField DataField="IdCategoria" HeaderText="IdCategoria" InsertVisible="False" ReadOnly="True" SortExpression="IdCategoria" />
+                                    <asp:BoundField DataField="NombreCategoria" HeaderText="NombreCategoria" SortExpression="NombreCategoria" />
+                                    <asp:BoundField DataField="DescripcionCategoria" HeaderText="DescripcionCategoria" SortExpression="DescripcionCategoria" />
+                                
+                                    <asp:TemplateField HeaderText="Opciones">
+                                        <ItemTemplate>
+                                            <a class="btn btn-primary" href="DetalleCategoria.aspx?id=<%# Eval("IdCategoria") %>">Detalles</a>
+                                            <button type="button" class="btn btn-danger" onclick="deleteCategoria(<%# Eval("IdCategoria") %>)">
+                                                Eliminar
+                                            </button>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                </Columns>
                             </asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSourceCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:myAppConnectionString %>" SelectCommand="SelectCategoria" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                         </div>
                         <!--Fin GridView-->
 
@@ -108,6 +126,33 @@
 
             <!--Librerias de javascript-->
             <script src="Scripts/bootstrap.min.js"></script>
+
+            <!--Script muestra una alerta y recarga la pagina-->
+            <script>
+                const deleteCategoria = (idCategoria) => {
+                    Swal.fire({
+                        title: 'Quieres borrar esta categoria?',
+                        text: "Una vez borrada no podras recurperarla",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, eliminar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                'Eliminado!',
+                                'Tu registro fue eleminado correctamente.',
+                                'success'
+                            )
+                            //espera para recargar la pagina
+                            setTimeout(() => {
+                                location.href = "Categorias.aspx?eliminar=" + idCategoria
+                            }, 500);
+                        }
+                    })
+                }
+            </script>
         </div>
     </form>
 </body>

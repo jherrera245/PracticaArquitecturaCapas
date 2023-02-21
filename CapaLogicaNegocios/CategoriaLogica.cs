@@ -14,6 +14,11 @@ namespace CapaLogicaNegocios
         //objeto de la clase CategoriaDatos
         private CategoriaDatos Datos = new CategoriaDatos();
 
+        //obatener categoria
+        public Categoria GetCategoria(int? IdCategoria) {
+            return Datos.GetCategoriaById(IdCategoria);
+        }
+
         //metodo para la seleccion de datos
         public DataTable ListaCategorias() {
             return Datos.SelectCategoriaDatos();
@@ -22,6 +27,14 @@ namespace CapaLogicaNegocios
         //metodo para agrear una categoria
         public bool AgregarCategoria(Categoria categoria) {
             return Datos.InsertCategoria(categoria);
+        }
+
+        public bool ActualizarCategoria(Categoria categoria) {
+            return Datos.UpdateCategoria(categoria);
+        }
+
+        public bool EliminarCategoria(int? IdCategoria) {
+            return Datos.DeleteCategoria(IdCategoria);
         }
     }
 }

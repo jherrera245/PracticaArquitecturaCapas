@@ -11,7 +11,7 @@ namespace CapaPresentacion
 {
 
 
-    public partial class Categorias
+    public partial class DetalleCategoria
     {
 
         /// <summary>
@@ -24,22 +24,31 @@ namespace CapaPresentacion
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control GridViewCategorias.
+        /// Control LabelNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCategorias;
+        protected global::System.Web.UI.WebControls.Label LabelNombre;
 
         /// <summary>
-        /// Control SqlDataSourceCategorias.
+        /// Control LabelDescripción.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceCategorias;
+        protected global::System.Web.UI.WebControls.Label LabelDescripción;
+
+        /// <summary>
+        /// Control TextBoxIdCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxIdCategoria;
 
         /// <summary>
         /// Control TextBoxNombreCategoria.
@@ -60,12 +69,21 @@ namespace CapaPresentacion
         protected global::System.Web.UI.WebControls.TextBox TextBoxDescripcionCategoria;
 
         /// <summary>
-        /// Control ButtonGuadarCategoria.
+        /// Control ButtonActualizarCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonGuadarCategoria;
+        protected global::System.Web.UI.WebControls.Button ButtonActualizarCategoria;
+
+        /// <summary>
+        /// Control ButtonEliminarCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonEliminarCategoria;
     }
 }
